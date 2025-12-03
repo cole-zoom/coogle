@@ -1,0 +1,8 @@
+data/
+venv/
+.venv/
+index/
+__pycache__/
+.pytest_cache/
+.DS_Store
+stemmed_index/
