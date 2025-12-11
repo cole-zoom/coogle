@@ -1,4 +1,3 @@
-from nltk.stem import PorterStemmer
 import math
 
 def convert_tokens_to_ids(text: list[str], lexicon: dict[str, int], word_counts: dict[int, int]) -> None:
@@ -54,24 +53,6 @@ def tokenize(text: str, tokens: list[str]) -> None:
     if start != i :
         tokens.append(text[start:i])
 
-def tokenize_and_stem(text: str, tokens: list[str]) -> None:
-    text = text.lower() 
-    stemmer = PorterStemmer()
-
-    start = 0 
-    i = 0
-
-    for currChar in text:
-        if not currChar.isdigit() and not currChar.isalpha() :
-            if start != i :
-                token = text[start:i]
-                tokens.append( stemmer.stem(token) )
-                
-            start = i + 1
-        i += 1
-    if start != i :
-        tokens.append(stemmer.stem(text[start:i]))
-
 def calculate_magnitude(word_counts: dict[int, int]) -> float:
     """
     Calculates the magnitude of a document.
@@ -82,9 +63,3 @@ def calculate_magnitude(word_counts: dict[int, int]) -> float:
         magnitude += (1 + math.log(count))**2
 
     return math.sqrt(magnitude)
-
-if __name__ == "__main__":
-    text = "Hello, world! This is a test231😀"
-    tokens = []
-    tokenize_and_stem(text, tokens)
-    print(tokens)

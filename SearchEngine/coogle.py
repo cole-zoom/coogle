@@ -52,7 +52,7 @@ def main():
         sys.exit(1)
     
     print("Welcome to Coogle! Enter a query to search the index.\n")
-    search_method = "BM25"
+    search_method = "New_BM25"
 
     # Main Application Loop
     while True:

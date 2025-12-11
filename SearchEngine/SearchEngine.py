@@ -5,6 +5,7 @@ import array
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 from RetrievalMethods.BM25 import search as bm25_search
+from RetrievalMethods.New_BM25 import search as new_bm25_search
 
 
 class SearchEngine:
@@ -167,6 +168,16 @@ class SearchEngine:
         """
         if method == "BM25":
             return bm25_search(
+                query=query,
+                store_path=self.store_path,
+                lexicon=self.lexicon,
+                index_offsets=self.index_offsets,
+                docnos=self.docnos,
+                doc_lengths=self.doc_lengths,
+                offsets=self.offsets
+            )
+        elif method == "New_BM25":
+            return new_bm25_search(
                 query=query,
                 store_path=self.store_path,
                 lexicon=self.lexicon,

@@ -1,4 +1,4 @@
-# HW5
+# coogle
 
 ## Cole Dumanski | cadumans
 
@@ -28,6 +28,12 @@ The basic command to build the index:
 
 ```bash
 python IndexEngine/IndexEngine.py <documents_file> <output_path>
+```
+
+**Note:** If you are using an XML corpus (updated LAtimes corpus), use `XMLIndexEngine.py` instead:
+
+```bash
+python IndexEngine/XMLIndexEngine.py <documents_file> <output_path>
 ```
 
 #### Arguments:
@@ -69,6 +75,24 @@ python SearchEngine/coogle.py <index_path>
 #### Arguments:
 
 - `index_path`: Path to the directory containing index files (output from IndexEngine)
+
+#### Switching Between BM25 and New_BM25:
+
+In `coogle.py`, you can switch between search methods by modifying line 55:
+
+- **BM25**: Use for the old latimes index (1900's)
+  ```python
+  search_method = "BM25"
+  ```
+
+- **New_BM25**: Use for the new latimes index (covid era)
+  ```python
+  search_method = "New_BM25"
+  ```
+
+**Which search method to use:**
+- If searching on the **old latimes index**, use `BM25`
+- If searching on the **new latimes index**, use `New_BM25`
 
 #### Example with Index:
 
